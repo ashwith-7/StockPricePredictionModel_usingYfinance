@@ -1,0 +1,164 @@
+<html>
+<head>
+    
+    <title>Stock Price Prediction</title>
+    <style>
+    .h1{
+    
+       letter-spacing: 5px;
+      word-spacing: 40px;
+      font-size: 90px;
+    }
+    .vc {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left:0;
+        z-index:-1;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-size: cover;
+    }   
+    .vc img {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    select{
+        border: none;
+        padding: 8px 10px;
+        border-radius: 8px;
+        opacity: 70%;
+    }
+
+    label{
+        font-family: "Hiragino Sans GB";
+        font-size: 20px;
+        opacity: 60%;
+        color:black;
+
+    }
+
+    input{
+        border: none;
+        padding: 8px 10px;
+        border-radius: 8px;
+        opacity: 70%
+    }
+
+
+    .btn {
+        position: relative;
+        top: 50px;
+        left: 125px;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #FFFFFF;
+        opacity: 70%;
+        color: black;
+        font-size: 16px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background-color: black;
+        color: white;
+    }
+    body {
+        background-color: #63D6E0;
+        overflow: hidden;
+    }
+
+    .ui{
+        position: absolute;
+        left:500px;
+        top:250px;
+    }
+
+    .dropdown1{
+        position: absolute;
+        top:48px;
+        left:163px;
+        color: black;
+        width:159px;
+    }
+
+
+    .box1 {
+        position: absolute;
+        height: 300px;
+        width:700px;
+        top:190px;
+        left:450px;
+        background: cyan;
+        opacity:30%;
+        z-index:-1;
+       
+    }
+    img{
+        position: absolute;
+        left:20px;
+        top:15px;
+        width:40px;
+        height:40px;
+        opacity: 80%;
+    }
+
+    h1{
+       font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: center;
+        opacity:80%;
+    }
+    </style>
+</head>
+<body>
+    <h1>Stock Market Prediction</h1>
+    <div class="vc">
+        <img src="{{ url_for('static', filename='Image/bg.jpg') }}">
+    </div>
+    <div class="ui">
+        <p style="position:fixed;right:600;top:230px;font-size:large;text-align: center;">
+           <b></b> <br>“Knowing 
+            <br>when to 
+            <br>sell 
+            <br>is much harder 
+            <br> than knowing 
+            <br>when to buy”</b>
+        </p>
+        <center>
+        
+        <form action="{{ url_for("test")}}" method="post">
+            <label>Company Name:</label>
+            <input type="text" id="stockname" name="sname"  placeholder="ENTER STOCK TICKER">
+        
+        <br><br>
+        <label style="position: absolute;left:75px;">Period:</label>
+        <select class="dropdown1" name="per">
+            <option value="30d">30 days</option>
+            <option value="60d">60 days (recommended)</option>
+            <option value="90d">90 days</option>
+            <option value="3y">3 years</option>
+        </select>
+        <br><br>
+        <br><br>
+        <button type="submit" class="btn">Predict</button>
+        <label style="position: absolute;left:100px;top:120px; white-space: nowrap;">{{ error }}</p>
+        </center>
+    </div>
+    <center>
+    <div class="box1">
+    </div>
+    </center><br><br><br><br><br>
+</body>
+</html>
